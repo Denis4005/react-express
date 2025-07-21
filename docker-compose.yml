@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./front-js
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./back-js
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    # environment:
+    #   - NODE_ENV=${NODE_ENV}
+    #   - DATABASE_URL=${DATABASE_URL}
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgres://postgres:777@db:5432/dbproj
+    depends_on:
+      - db
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:4000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  db:
+    image: postgres:alpine
+    restart: always
+    # environment:
+    #   POSTGRES_USER: ${POSTGRES_USER}
+    #   POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    #   POSTGRES_DB: ${POSTGRES_DB}
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 777
+      POSTGRES_DB: dbproj
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:

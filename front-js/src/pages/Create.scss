@@ -1,0 +1,101 @@
+.custom-form {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 32px 24px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(60, 60, 120, 0.09);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.custom-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  color: #333;
+  gap: 6px;
+}
+
+.custom-form input[type="text"],
+.custom-form textarea {
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  background: #f9f9fb;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  resize: none;
+  outline: none;
+}
+
+.custom-form input[type="text"]:focus,
+.custom-form textarea:focus {
+  border-color: #4f8cff;
+  box-shadow: 0 0 0 2px rgba(79, 140, 255, 0.13);
+  background: #fff;
+}
+
+.custom-form textarea {
+  min-height: 100px;
+  max-height: 220px;
+  resize: vertical;
+}
+
+.file-upload {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.file-label {
+  display: inline-block;
+  padding: 8px 18px;
+  background: #4f8cff;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.file-label:hover,
+.file-label:focus {
+  background: #2563eb;
+}
+
+.file-name {
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+.submit-btn {
+  padding: 11px 0;
+  background: linear-gradient(90deg, #4f8cff 0%, #2563eb 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(60, 60, 120, 0.08);
+}
+
+.submit-btn:hover,
+.submit-btn:focus {
+  background: linear-gradient(90deg, #2563eb 0%, #4f8cff 100%);
+  box-shadow: 0 4px 16px rgba(60, 60, 120, 0.13);
+}
+.custom-form h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
