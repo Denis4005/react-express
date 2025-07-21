@@ -1,15 +1,30 @@
+# Node.js зависимости (для сервера и клиента)
 node_modules/
+
+# Папка с собранным React приложением
 build/
-*.log
+
+# Логи npm и yarn
 npm-debug.log*
 yarn-debug.log*
+yarn-error.log*
+
+# Файлы переменных окружения с секретами
 .env
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
+
+# Кэш и временные папки
 .cache/
 .temp/
-dist/
+
+# IDE, редакторы и системные файлы
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Файлы, создаваемые системой или пакетами
 *.tgz
 *.tsbuildinfo
+
+# Дополнительно для React
+coverage/
